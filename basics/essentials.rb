@@ -48,3 +48,30 @@ end
 # 5.times
 # 1.upto(5)
 # 3.downto(1)
+
+# Hashes
+
+user = {
+    "name" => "joe",
+    "age" => 31,
+    "job" => "SWE"
+}
+puts user["name"]
+
+# Symbol is preferred over string in hashes
+# Better performance and resource usage. 
+user = {
+    :name => "jane",
+    :age => 23
+}
+puts user[:name]
+
+# Iterate through keys
+for k in user.keys
+    puts k 
+end
+
+# Iterate through items
+for item in user
+    puts "key: #{item[0]}, value: #{item[1]}"
+end
