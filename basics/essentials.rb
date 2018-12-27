@@ -17,7 +17,7 @@ printf "The PI constant is %0.2f\n", 3.14159
 # Use double-quoted string to escape single quote character
 print "Her pet's name is Kenzy\n"
 # Use %q for mixture of single and double quotes
-# puts %q{Her pet's name is "Kenzy" }
+puts %q{Her pet's name is "Kenzy" }
 
 # Arrays
 names = ['joe', 'andy', 'betty']
