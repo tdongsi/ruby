@@ -56,13 +56,17 @@ class Battlecruise < SpaceShip
         # NOTE: the call "super" is different from "super()"
         # The former get arguments (1) from input while the latter get 0 argument.
         super(name, @@GUN_COUNT)
-        puts "In Battlecruise init"
+        puts "Creating Battlecruise: #{name}"
     end
 
     def defense
         # NOTE: Private method is accessible from subclass
         alert
         puts "Shield up!"
+    end
+
+    def ==(other)
+        name == other.name
     end
 
 end
@@ -73,3 +77,6 @@ Battlecruise.rally
 warship.defense
 # To actually execute private method
 warship.send :alert
+
+ship2 = Battlecruise.new("Argo")
+puts warship == ship2
