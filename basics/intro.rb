@@ -12,21 +12,6 @@ puts my_string
 puts my_string.strip!
 puts my_string
 
-def double(val)
-  val * 2
-end
-
-# global variables start with '$' character
-$log_level = 'debug'
-
-puts $log_level
-
-# Simple input/output
-print "Enter your name:"
-#name = gets
-name = 'Alex'
-puts "My name is #{name}"
-
 # Scripting
 puts "Using backticks"
 res = `date`
