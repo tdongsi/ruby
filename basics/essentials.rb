@@ -95,9 +95,34 @@ if false
 end
 
 
-# 5.times
-# 1.upto(5)
-# 3.downto(1)
+my_arr = Array.new(3, "abc")
+p my_arr
+my_arr.first.upcase!
+p my_arr
+
+my_arr = Array.new(3) {"abc"}
+p my_arr
+my_arr.first.upcase!
+p my_arr
+
+# Create LoL
+mlol = Array.new(3) { Array.new(3, 0) }
+p mlol
+mlol[1][1] = 3
+p mlol
+
+# words from string
+# Use backlash to add space
+words = %w(array\ of #{2+2} words)
+p words
+# %W for double quote string behaviors
+words = %W(array\ of #{2+2} words)
+p words
+
+# symbols from string
+syms = %i(up down left right)
+p syms
+puts syms * ","
 
 ##########################################################
 # Hash
