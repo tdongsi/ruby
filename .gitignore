@@ -51,3 +51,4 @@ build-iPhoneSimulator/
 
 # RubyMine metadata
 */.idea
+*.iml
