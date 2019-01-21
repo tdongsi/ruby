@@ -1,0 +1,4 @@
+# Managed by Puppet - do not edit
+server <%= @ntp_local_server %> iburst perfer
+server <%= @ntp_regional_server %>
+driftfile /var/lib/ntp/drift
