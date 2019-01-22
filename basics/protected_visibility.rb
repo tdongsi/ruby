@@ -34,9 +34,9 @@ puts fast_ship.call_sign_matches?(ship)
 # DEMO: Monkey patching
 puts "abc".size
 # Change behavior of String class in standard library
-class String
-  def size
-    "Won't tell you"
-  end
-end
+# class String
+#   def size
+#     "Won't tell you"
+#   end
+# end
 puts "abc".size
