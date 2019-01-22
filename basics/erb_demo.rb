@@ -17,10 +17,11 @@ server <%= ntp_local_server %> iburst perfer
 server <%= ntp_regional_server %>
 driftfile /var/lib/ntp/drift
 EOF
+puts template.result(binding)
 
 file = File.read('ntp.conf.erb')
-template2 = ERB.new(file)
-
-puts template.result(binding)
+template2 = ERB.new(file, nil, '%-')
+# ntp_regional_server is an array instead of string
+ntp_regional_server = ['uk.pool.ntp.org', 'us.pool.ntp.org']
 puts
 puts template2.result(binding)
