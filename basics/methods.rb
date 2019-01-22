@@ -24,6 +24,8 @@ produce_spaceship(:yacht, **build_params)
 customized = {seats: :leather}
 produce_spaceship(:yacht, size: :s, **customized)
 
+puts '#################################'
+
 #################################
 # Demo of operator overloading
 #################################
@@ -81,3 +83,33 @@ p ship1
 -ship1
 
 !ship1
+
+puts '#################################'
+
+#################################
+# Usage of method_missing
+#################################
+
+class Cargo
+  def method_missing(name, *args)
+    case name
+    when /^find_by_([a-z]+)_and_([a-z]+)$/
+      find($1.to_sym => args[0], $2.to_sym => args[1])
+    when /^find_by_([a-z]+)$/
+      find($1.to_sym => args[0])
+    else
+      super
+    end
+  end
+
+  private
+
+  def find(attrs)
+    puts "Finding cargo by #{attrs.inspect}"
+  end
+end
+
+cargo = Cargo.new
+cargo.find_by_destination("New York")
+cargo.find_by_weight_and_volume(100, 10)
+# cargo.find_by_Weight_or_Volume(100, 10)
