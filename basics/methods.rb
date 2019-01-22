@@ -102,6 +102,12 @@ class Cargo
     end
   end
 
+  # Override response_to? to match method_missing behavior
+  def respond_to?(name, *args)
+    return true if name =~ /^find_by_([a-z]+|[a-z]+_and_[a-z]+)$/
+    super
+  end
+
   private
 
   def find(attrs)
@@ -113,3 +119,8 @@ cargo = Cargo.new
 cargo.find_by_destination("New York")
 cargo.find_by_weight_and_volume(100, 10)
 # cargo.find_by_Weight_or_Volume(100, 10)
+
+puts cargo.respond_to? 'find_by_destination'
+puts cargo.respond_to? :find_by_destination
+puts cargo.respond_to? :find_by_Weight_or_Volume
+
