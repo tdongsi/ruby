@@ -23,9 +23,9 @@ class MyTest < Test::Unit::TestCase
 
   def test_plus
     +@ship
-    assert(@ship.speed == 10)
+    assert_equal(@ship.speed, 10)
     -@ship
-    assert(@ship.speed == 0)
+    assert_equal(0, @ship.speed)
   end
 
 end
